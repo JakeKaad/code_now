@@ -1,0 +1,11 @@
+<%= render 'shared/header', title: "Create New Lesson" %>
+
+<%= form_for @lesson do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, rows: 15 %>
+
+  <%= f.submit %>
+<% end %>

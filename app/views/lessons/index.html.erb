@@ -1,0 +1,7 @@
+<%= render('shared/header', title: 'Lessons') %>
+
+<% @lessons.each do |lesson| %>
+  <p>
+    <%= lesson.title %>
+  </p>
+<% end %>
