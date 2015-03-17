@@ -1,0 +1,9 @@
+<%= render('shared/header', title: 'Lessons') %>
+
+<% @lessons.each do |lesson| %>
+  <p>
+    <%= link_to lesson.title, lesson_path(lesson) %>
+  </p>
+<% end %>
+
+<%= link_to 'Create a New Lesson', new_lesson_path %>
