@@ -29,20 +29,13 @@ describe Lesson do
     end
   end
 
-  # describe '#update_lesson_order' do
-  #
-  #   it 'should update the lesson order' do
-  #     lesson1 = Lesson.create({:title =>'lesson1', :content =>'xyz'})
-  #     lesson2 = Lesson.create({:title => 'lesson2', :content =>'abc'})
-  #     lesson2.update_lesson_order(1)
-  #     expect(lesson2.lesson_order).to eq 1
-  #   end
-  #
-  #   it 'should update other lessons orders' do
-  #     lesson1 = Lesson.create({:title =>'lesson1', :content =>'xyz'})
-  #     lesson2 = Lesson.create({:title => 'lesson2', :content =>'abc'})
-  #     lesson2.update_lesson_order(1)
-  #     expect(lesson1.lesson_order).to eq 2
-  #   end
-  # end
+  describe 'update_lesson_order' do
+    it "shouldn't have gaps in lesson order after deleting a lesson" do
+      lesson1 = Lesson.create({:title =>'lesson1', :content =>'xyz'})
+      lesson2 = Lesson.create({:title => 'lesson2', :content =>'abc'})
+      lesson1.delete
+      Lesson.update_lesson_order
+      expect(lesson2.reload.lesson_order).to eq 1
+    end
+  end
 end

@@ -36,6 +36,7 @@ class LessonsController <ApplicationController
 
   def destroy
     @lesson.delete
+    Lesson.update_lesson_order
     flash[:alert]="Successfully deleted!"
     redirect_to lessons_path
   end
