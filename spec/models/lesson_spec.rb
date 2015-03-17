@@ -38,4 +38,14 @@ describe Lesson do
       expect(lesson2.reload.lesson_order).to eq 1
     end
   end
+
+  describe 'update_given_lesson_order' do
+    it "should update a lesson order and all corresponding lessons to match with uniquness of order" do
+      lesson1 = Lesson.create({:title =>'lesson1', :content =>'xyz'})
+      lesson2 = Lesson.create({:title => 'lesson2', :content =>'abc'})
+      lesson2.update_given_lesson_order(1)
+      expect(lesson1.reload.lesson_order).to eq 2
+      expect(lesson2.lesson_order).to eq 1
+    end
+  end
 end
