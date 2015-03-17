@@ -19,3 +19,14 @@ html,
 body{
   font-family: 'Open Sans Condensed', sans-serif;
 }
+
+
+.col-md-6{
+  border: 6px;
+  border-color: #000;
+}
+
+
+li {
+  list-style: none;
+}
