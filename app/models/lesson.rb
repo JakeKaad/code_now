@@ -21,6 +21,22 @@ class Lesson < ActiveRecord::Base
     end
   end
 
+  def next
+    Lesson.find_by(lesson_order: self.lesson_order + 1)
+  end
+
+  def previous
+    Lesson.find_by(lesson_order: self.lesson_order - 1)
+  end
+
+  def last_lesson?
+    !self.next
+  end
+
+  def first_lesson?
+    !self.previous
+  end
+
 
   private
     def assign_lesson_number

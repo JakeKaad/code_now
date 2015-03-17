@@ -1,7 +1,15 @@
 <%= render('shared/header', title: @lesson.title) %>
 <p><%= @lesson.content %></p>
+<% unless @lesson.last_lesson? %>
+  <%= link_to 'Next_lesson', lesson_path(@lesson.next) %>
+  <%= spacer %>
+<% end %>
 <%= link_to 'Edit', edit_lesson_path(@lesson) %>
 <%= spacer %>
 <%= link_to 'Delete', lesson_path(@lesson),
                       data: {confirm: "Are you sure?",
                              method: :delete}  %>
+<% unless @lesson.first_lesson? %>
+  <%= spacer %>
+  <%= link_to 'Last_lesson', lesson_path(@lesson.previous) %>
+<% end %>
