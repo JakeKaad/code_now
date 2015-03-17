@@ -1,5 +1,5 @@
 class LessonsController <ApplicationController
-  before_action :find_lesson, only: [:edit, :update, :show]
+  before_action :find_lesson, only: [:edit, :update, :show, :destroy]
 
   def index
     @lessons = Lesson.all
@@ -34,6 +34,11 @@ class LessonsController <ApplicationController
     end
   end
 
+  def destroy
+    @lesson.delete
+    flash[:alert]="Successfully deleted!"
+    redirect_to lessons_path
+  end
 
   private
 
