@@ -1,11 +1,7 @@
 <%= render 'shared/errors', object: @lesson %>
 
-<%= form_for @lesson do |f| %>
-  <%= f.label :title %>
+<%= bootstrap_form_for(@lesson) do |f| %>
   <%= f.text_field :title %>
-
-  <%= f.label :content %>
   <%= f.text_area :content, rows: 15 %>
-
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-info' %>
 <% end %>

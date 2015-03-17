@@ -7,6 +7,11 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'bootstrap'
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails'
+gem 'bootstrap_form'
 
 group :development do
   gem 'better_errors'

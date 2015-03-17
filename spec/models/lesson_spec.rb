@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Lesson do
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:content) }
+  it { should belong_to(:course)}
 
   context 'on save' do
     it 'will save the lesson_order with the next highest integer' do

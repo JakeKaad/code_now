@@ -1,6 +1,7 @@
 class Lesson < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :content
+  belongs_to :course
 
   before_create :assign_lesson_number
 
