@@ -1,0 +1,7 @@
+<%= render 'shared/errors', object: @course %>
+
+<%= bootstrap_form_for(@course) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description, rows: 5 %>
+  <%= f.submit class: 'btn btn-info' %>
+<% end %>
