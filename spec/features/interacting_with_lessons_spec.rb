@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "user interacts with lessons" do
   it "adds a new lesson" do
-    visit('/')
+    visit('/lessons')
     create_a_new_lesson
     expects_a_page_to_have_content('Test Lesson Title')
 
@@ -12,7 +12,7 @@ describe "user interacts with lessons" do
   end
 
   it "edits a lesson" do
-    visit('/')
+    visit('/lessons')
     create_a_new_lesson
     click_link 'Test Lesson Title'
     expects_a_page_to_have_content('Test Lesson Content')
@@ -25,7 +25,7 @@ describe "user interacts with lessons" do
   end
 
   it "destroys a lesson" do
-    visit('/')
+    visit('/lessons')
     create_a_new_lesson
     click_link 'Test Lesson Title'
     click_link "Delete"

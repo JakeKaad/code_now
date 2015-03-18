@@ -1,4 +1,6 @@
 class CoursesController<ApplicationController
+  before_action :find_course, only: [:edit, :update, :show, :destroy]
+
 
   def index
     @courses = Course.all
@@ -19,6 +21,24 @@ class CoursesController<ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @course.update(course_params)
+      flash[:notice]="You have successfully updated #{@lesson.title}!"
+      redirect_to courses_path(@course)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @course.delete
+    flash[:alert]="Successfully deleted!"
+    redirect_to courses_path
   end
 
 private
